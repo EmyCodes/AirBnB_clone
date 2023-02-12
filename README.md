@@ -347,21 +347,19 @@ e952b772-80a5-41e9-b728-6bc4dc5c21b4
 
 ## Authors
 
-[**Ogundare Olamide Emmanuel**](https//github.com/emycodes)
-
 <details>
-    <summary>Ismaila Lawal Elijah</summary>
+    <summary>Ogundare Olamide Emmanuel</summary>
     <ul>
-    <li><a href="https://www.github.com/ElijahLawal-7">Github</a></li>
-    <li><a href="https://www.linkedin.com/in/elijah-lawal-18aa101bb">LinkedIn</a></li>
-    <li><a href="mailto:lawalelijah50@gmail.com@gmail.com">E-mail</a></li>
+    <li><a href="https://www.github.com/EmyCodes">Github</a></li>
+    <li><a href="https://www.linkedin.com/in/emycodes">LinkedIn</a></li>
+    <li><a href="mailto:ogundareolamideemmanuel@gmail.com">E-mail</a></li>
     </ul>
 </details>
 <details>
-    <summary>Bridget Freedom</summary>
+    <summary>Agbor Jackson Arrey </summary>
     <ul>
-    <li><a href="https://www.github.com/freedombridget">Github</a></li>
-    <li><a href="mailto:freedombridget0@gmail.com@gmail.com">E-mail</a></li>
+    <li><a href="https://www.github.com/jacksonarrey">Github</a></li>
+    <li><a href="mailto:agborarrey93@gmail.com">E-mail</a></li>
     </ul>
 </details>
 
