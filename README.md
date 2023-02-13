@@ -359,6 +359,7 @@ e952b772-80a5-41e9-b728-6bc4dc5c21b4
     <summary>Agbor Jackson Arrey </summary>
     <ul>
     <li><a href="https://www.github.com/jacksonarrey">Github</a></li>
+    <li><a href="#">LinkedIn</a><li>
     <li><a href="mailto:agborarrey93@gmail.com">E-mail</a></li>
     </ul>
 </details>
