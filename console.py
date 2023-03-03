@@ -33,6 +33,29 @@ class HBNBCommand(cmd.Cmd):
 		else:
 			new_object = eval(f"{args[0]}")()
 			print(new_object.id)
+<<<<<<< HEAD
+=======
+		
+	def do_show(self, arg):
+		"""Prints the string representation of an instance based on the class name and id
+		"""
+		args = arg.split()
+		no_cls_name = eval(f"{args[0]")()
+
+		if len(args) == 0:
+			print("** class name missing **")
+		elif args[0] not in self.__classes:
+			print("** class doesn't exist **")
+		elif len(args) != 2:
+			print("** instance id missing **")
+
+		elif:
+			pass
+		else:
+			pass
+			
+
+>>>>>>> emycodes
 
 if __name__ == "__main__":
 	HBNBCommand().cmdloop()
