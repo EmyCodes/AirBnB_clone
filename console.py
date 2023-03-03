@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 import cmd
 
-class HBNB(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
 	"""Console"""
 	prompt = "(hbnb) "
 
-	def do_quit(self):
+	def do_quit(self, line):
 		"""Exit Console"""
 		return True
 
-	def do_EOF(self):
+	def do_EOF(self, line):
 		"""Exit Console"""
 		return True
 
