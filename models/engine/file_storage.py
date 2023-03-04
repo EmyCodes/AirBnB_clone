@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import json
-from models import base_model
+from models.base_model import BaseModel
+from models.user import User
 # import models
 
 class FileStorage():
@@ -31,7 +32,7 @@ class FileStorage():
 				for o in obj_dict.values():
 					cls_name = o["__class__"]
 					del o["__class__"]
-					self.new(eval(f"base_model.{cls_name}")(**o))
+					self.new(eval(f"{cls_name}")(**o))
 
 		except FileNotFoundError:
 			return
