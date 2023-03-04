@@ -2,12 +2,12 @@
 import cmd
 from models.base_model import BaseModel
 from models import storage
-from model.user import User
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
 	"""Console"""
 	prompt = "(hbnb) "
-	__classes = ["BaseModel"]
+	__classes = ["BaseModel", "User"]
 
 	def do_quit(self, line):
 		"""to Exit Console
