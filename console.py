@@ -40,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
 		else:
 			new_object = eval(f"{args[0]}")()
 			print(new_object.id)
-		
+		storage.save()	
 	def do_show(self, arg):
 		"""Prints the string representation of an instance based on the class name and id
 		"""
@@ -57,8 +57,8 @@ class HBNBCommand(cmd.Cmd):
 			print("** no instance found **")
 		else:
 			print(storage.all()[f"{args[0]}.{args[1]}"])
-			
-	def do_destroy(self, arg):
+
+		def do_destroy(self, arg):
 		""" Deletes an instance based on the class name and id (save the change into the JSON file)
 		"""
 		args = arg.split()
@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
 			print("** no instance found **")
 		else:
 			del storage.all()[f"{args[0]}.{args[1]}"]
-			storage.save()
+		storage.save()
 		
 	def do_all(self, arg):
 		"""Prints all string representation of all instances based or not on the class name.
