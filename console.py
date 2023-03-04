@@ -1,11 +1,18 @@
 #!/usr/bin/python3
 import cmd
 from models.base_model import BaseModel
+from models import storage
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
 	"""Console"""
 	prompt = "(hbnb) "
-	__classes = ["BaseModel"]
+	__classes = ["BaseModel", "User"]
 
 	def do_quit(self, line):
 		"""to Exit Console
@@ -40,20 +47,69 @@ class HBNBCommand(cmd.Cmd):
 		"""Prints the string representation of an instance based on the class name and id
 		"""
 		args = arg.split()
-		no_cls_name = eval(f"{args[0]")()
+		#no_cls_name = eval(f"{args[0]")())
 
 		if len(args) == 0:
 			print("** class name missing **")
 		elif args[0] not in self.__classes:
 			print("** class doesn't exist **")
-		elif len(args) != 2:
+		elif len(args) == 1:
 			print("** instance id missing **")
-
-		elif:
-			pass
+		elif f"{args[0]}.{args[1]}" not in storage.all():
+			print("** no instance found **")
 		else:
-			pass
+			print(storage.all()[f"{args[0]}.{args[1]}"])
 			
+	def do_destroy(self, arg):
+		""" Deletes an instance based on the class name and id (save the change into the JSON file)
+		"""
+		args = arg.split()
+
+		if len(args) == 0:
+			print("** class name missing **")
+		elif args[0] not in self.__classes:
+			print("** class doesn't exist **")
+		elif len(args) == 1:
+			print("** instance id missing **")
+		elif f"{args[0]}.{args[1]}" not in storage.all():
+			print("** no instance found **")
+		else:
+			del storage.all()[f"{args[0]}.{args[1]}"]
+			storage.save()
+		
+	def do_all(self, arg):
+		"""Prints all string representation of all instances based or not on the class name.
+		"""
+		args = arg.split()
+			
+		if len(args) == 0:
+			print([str(v) for v in storage.all().values()])
+		elif args[0] not in self.__classes:
+			print("** class doesn't exist **")
+		else:
+			print([str(v) for k, v in storage.all().items() if k.startswith(args[0])])
+
+	def do_update(self, arg):
+		"""Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file)
+		"""
+		args = arg.split()
+
+		if len(args) == 0:
+			print("** class name missing **")
+		elif args[0] not in self.__classes:
+			print("** class doesn't exist **")
+		elif len(args) == 1:
+			print("** instance id missing **")
+		elif f"{args[0]}.{args[1]}" not in storage.all():
+			print("** no instance found **")
+		elif len(args) == 2:
+			print("** attribute name missing **")
+		elif len(args) == 3:
+			print("** value missing **")
+		else:
+			updated_cls = storage.all()[f"{args[0]}.{args[1]}"]
+			storage.save()
+
 
 >>>>>>> emycodes
 
