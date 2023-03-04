@@ -40,8 +40,8 @@ class HBNBCommand(cmd.Cmd):
 		else:
 			new_object = eval(f"{args[0]}")()
 			print(new_object.id)
-<<<<<<< HEAD
-=======
+
+
 		
 	def do_show(self, arg):
 		"""Prints the string representation of an instance based on the class name and id
@@ -111,7 +111,7 @@ class HBNBCommand(cmd.Cmd):
 			storage.save()
 
 
->>>>>>> emycodes
+
 
 if __name__ == "__main__":
 	HBNBCommand().cmdloop()
