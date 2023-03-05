@@ -12,7 +12,14 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
 	"""Console"""
 	prompt = "(hbnb) "
-	__classes = ["BaseModel", "User"]
+	__classes = ["BaseModel", 
+			"User",
+			"Place",
+			"State",
+			"City",
+			"Amenity",
+			"Review"
+		]
 
 	def do_quit(self, line):
 		"""to Exit Console
@@ -58,8 +65,9 @@ class HBNBCommand(cmd.Cmd):
 		else:
 			print(storage.all()[f"{args[0]}.{args[1]}"])
 
-		def do_destroy(self, arg):
+	def do_destroy(self, arg):
 		""" Deletes an instance based on the class name and id (save the change into the JSON file)
+
 		"""
 		args = arg.split()
 
@@ -105,9 +113,26 @@ class HBNBCommand(cmd.Cmd):
 		elif len(args) == 3:
 			print("** value missing **")
 		else:
-			updated_cls = storage.all()[f"{args[0]}.{args[1]}"]
-			storage.save()
+		storage.save()
 
+	def default(self, arg):
+		"""default
+		"""
+		args = arg.split(".")
+		if args[0] in self.__classes:
+			if args[1] == "all()":
+				self.do_all(args[0])
+			elif args[1] == "count()":
+				list_ = [v for k, v in storage.all().items() if k.startswith(args[0])]
+				print(len(list_))
+			elif args[1].startswith("show"):
+				split_ = args[1].split('"')
+				id_ = split_[1]
+				self.do_show(f"{args[0]} {id_}")
+			elif args[1].startswith("destroy"):
+				split_ = args[1].split('"')
+				id_ = split_[1]
+				self.do_destroy(f"{args[0]} {id_}")
 
 
 if __name__ == "__main__":
