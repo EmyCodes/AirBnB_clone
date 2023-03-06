@@ -168,7 +168,7 @@ class HBNBCommand(cmd.Cmd):
 				#print(id_)
 				#print(attr_name)
 				#print(attr_value)
-				self.do_update(f"{args[0]} {id_} {split_[1]} {split_[2]}")
+				self.do_update(f"{args[0]} {id_} {attr_name} {attr_value}")
 
 if __name__ == "__main__":
 	HBNBCommand().cmdloop()
