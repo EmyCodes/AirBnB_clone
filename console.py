@@ -158,7 +158,17 @@ class HBNBCommand(cmd.Cmd):
 				split_ = args[1].split('"')
 				id_ = split_[1]
 				self.do_destroy(f"{args[0]} {id_}")
-
+			elif args[1].startswith("update"):
+				replace_ = args[1].replace('"', "")
+				split_ = replace_.split("(")
+				split_ = split_[1].strip(")").split(", ")
+				id_ = split_[0]
+				attr_name = split_[1]
+				attr_value = split_[2]
+				#print(id_)
+				#print(attr_name)
+				#print(attr_value)
+				self.do_update(f"{args[0]} {id_} {split_[1]} {split_[2]}")
 
 if __name__ == "__main__":
 	HBNBCommand().cmdloop()
