@@ -113,6 +113,31 @@ class HBNBCommand(cmd.Cmd):
 		elif len(args) == 3:
 			print("** value missing **")
 		else:
+			obj_name = args[0]
+			obj_id = args[1]
+
+			obj_key = f"{obj_name}.{obj_id}"
+			obj = storage.all()[obj_key]
+
+			attr_name = args[2]
+			attr_value = args[3].replace('"', "").replace("'", "")
+
+			#print("-----------")
+			#print()
+			#print(obj)
+			# if attr_value == "'" or attr_value == '"':
+			#	attr_value = attr_value[1:-1]
+				# attr_value = attr_value.strip('"').strip("'")
+			#	print(attr_value)	
+
+			if hasattr(obj, attr_name):
+				type_ = type(getattr(obj, attr_name))
+				if type_ in [str, int, float]:
+					attr_value = type_(attr_value)
+					setattr(obj, attr_name, attr_value)
+			else:
+				setattr(obj, attr_name, attr_value)
+			
 		storage.save()
 
 	def default(self, arg):
