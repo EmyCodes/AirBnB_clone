@@ -164,7 +164,33 @@ class HBNBCommand(cmd.Cmd):
 				split_ = args[1].split('"')
 				id_ = split_[1]
 				self.do_destroy(f"{args[0]} {id_}")
+<<<<<<< HEAD
 
+>>>>>>> emycodes
+=======
+			elif args[1].startswith("update"):
+				if '{' or '}' in args[1]:
+					split_ = args[1].split("(")
+					split_ = split_[1].split(", {")
+					id_ = split_[0].strip('"')
+					dict_ = "{" + split_[1].strip(')')
+					dict_ = eval(dict_)
+					for k, v in dict_.items():
+						#print(f"{k} = {v}")
+						self.do_update(f"{args[0]} {id_} {k} {v}")
+				else:
+					print("I don't have a dictionary")
+					id_ = split_[0]
+					replace_ = args[1].replace('"', "")
+					split_ = replace_.split("(")
+					split_ = split_[1].strip(")").split(", ")
+					attr_name = split_[1]
+					attr_value = split_[2]
+					#print(id_)
+					#print(attr_name)
+					#print(attr_value)
+					self.do_update(f"{args[0]} {id_} {attr_name} {attr_value}")
+				
 >>>>>>> emycodes
 
 if __name__ == "__main__":
