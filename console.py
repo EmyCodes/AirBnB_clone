@@ -49,7 +49,12 @@ class HBNBCommand(cmd.Cmd):
 			print(new_object.id)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+
+>>>>>>> 83b1276ec61541e26ca218fabd3896115c969a09
 		
 =======
 		storage.save()	
@@ -136,6 +141,7 @@ class HBNBCommand(cmd.Cmd):
 				# attr_value = attr_value.strip('"').strip("'")
 			#	print(attr_value)	
 
+<<<<<<< HEAD
 			if hasattr(obj, attr_name):
 				type_ = type(getattr(obj, attr_name))
 				if type_ in [str, int, float]:
@@ -192,6 +198,9 @@ class HBNBCommand(cmd.Cmd):
 					self.do_update(f"{args[0]} {id_} {attr_name} {attr_value}")
 				
 >>>>>>> emycodes
+=======
+
+>>>>>>> 83b1276ec61541e26ca218fabd3896115c969a09
 
 if __name__ == "__main__":
 	HBNBCommand().cmdloop()
